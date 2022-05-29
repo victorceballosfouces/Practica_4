@@ -1,7 +1,7 @@
 # Practica_4
 
 ## Codigo_4.1
-```
+```cpp
 #include <Arduino.h>
  
 /* this function will be invoked when additionalTask was created */
@@ -42,7 +42,7 @@ delay(1000);
 ## Funcionamiento
 
 ## Codigo_4.2
-```
+```cpp
 #include <Arduino.h>
  
 // This TaskHandle will allow
@@ -126,7 +126,7 @@ void loop()
 ## Funcionamiento
 
 ## Codigo_4.extra
-```
+```cpp
 #include <Arduino.h>
  
  
