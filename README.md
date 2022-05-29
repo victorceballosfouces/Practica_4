@@ -40,6 +40,7 @@ delay(1000);
 ```
 
 ## Funcionamiento
+En la imagen 4.1 se muestra la salida por el puerto serie. Respecto al código, declaramos la función anotherTask que será la ejecutada cuando declaremos la tarea en el setup. Simplemente se imprime por el puerto serie un texto para confirmar que se esta ejecutando ```Serial.println("this is another Task");```. En el setup declaramos la tarea con ```xTaskCreate()``` y asignamos la función previamente creada a esta. En el loop hacemos una impresión por el puerto y dejamos un delay de un segundo. La salida por el puerto serie representada en la imagen adjunta se debe a la ejecución en bucle infinito de anotherTask dentro de la tarea principal y el print del loop.
 
 ## Codigo_4.2
 ```cpp
