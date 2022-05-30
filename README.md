@@ -51,9 +51,7 @@ TaskHandle_t task1Handle = NULL;
  
 const int led1 = 17; // Pin of the LED
 const int led2 = 21; // Pin of the LED
- 
- 
- 
+  
 void toggleLED(void * parameter){
 for(;;){
  
@@ -90,8 +88,6 @@ vTaskDelay(500 / portTICK_PERIOD_MS);
 vTaskDelete( NULL );
 }
  
- 
- 
 void setup()
 {
 pinMode(led1, OUTPUT);
@@ -113,18 +109,18 @@ toggleLED2, /* Task function. */
 10000, /* Stack size of task */
 NULL, /* parameter of the task */
 1, /* priority of the task */
-NULL);
- 
+NULL); 
 }
- 
- 
- 
-/* the forever loop() function is invoked by Arduino ESP32 loopTask */
 void loop()
 {
 }
 ```
 ## Funcionamiento
+En esta parte de la práctica aplicamos los conocimientos adquiridos en el primer apartado, escribiendo un código con dos tareas sincronizadas que nos permita encender y apagar dos LEDS.
+
+Antes de nada declaramos los pines de los dos leds y creamos las dos funciones ```void toggleLED()``` y ```void toggleLED2()``` que posteriormente en el setup asignaremos a la tareas. Dentro de las funciones básicamente encendemos y apagamos los leds con ```digitalWrite()``` además de añadir un delay para sincronizarlos como queramos.
+
+Finalmente en el void setup() inicializamos el puerto serie y se definen los pines de los leds como salidas. Con ```xTaskCreate()``` creamos las dos tareas a las que, en su definición, asignaremos las funciones tipo void() ```void toggleLED()``` y ```void toggleLED2()``` para controlar asi el funcionamiento de los leds. En este caso el loop queda vacío.
 
 ## Codigo_4.extra
 ```cpp
@@ -255,3 +251,4 @@ void loop()
 }
 ```
 ## Funcionamiento
+Extensión del apartado 4.2 anterior dónde añadimos una tercera tarea con su respectiva función para controlar un LED más. De esta manera, y con un pequeño ajuste en unas de las funciones para hacer parpadear uno de los leds, creamos un semáforo simple que se repite en bucle. Se adjunta un video del funcionamiento en la carpeta del apartado 4.extra.
